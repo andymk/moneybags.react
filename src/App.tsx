@@ -1,15 +1,16 @@
 import React from "react";
-import { Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import "../node_modules/materialize-css/dist/css/materialize.min.css";
 import "../node_modules/materialize-css/dist/js/materialize.min.js";
 import "./App.css";
+import NavBar from "./components/navbar";
 
 const App: React.FC = () => {
   return (
-    <div className="App">
-      <h1>Moneybags</h1>
-    </div>
+    <Router>
+      <NavBar />
+    </Router>
   );
 };
 
