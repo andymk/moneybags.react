@@ -1,5 +1,6 @@
 import axios from "axios";
 import React from "react";
+import { createStore } from "redux";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import "../node_modules/materialize-css/dist/css/materialize.min.css";
@@ -12,7 +13,13 @@ import LoginPage from "./pages/login/loginpage";
 
 axios.defaults.baseURL = "http://localhost:5000/api";
 
-const App: React.FC = () => {
+// const store = createStore();
+
+interface IAppProps {
+  store: any;
+}
+
+const App = ({ store }: IAppProps) => {
   return (
     <Router>
       <NavBar />

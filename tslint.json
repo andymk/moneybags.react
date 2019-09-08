@@ -5,7 +5,8 @@
   "rules": {
     "no-console": false,
     "arrow-parens": false,
-    "ordered-imports": false
+    "ordered-imports": false,
+    "trailing-comma": false
   },
   "rulesDirectory": []
 }
