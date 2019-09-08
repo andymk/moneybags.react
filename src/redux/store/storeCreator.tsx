@@ -1,50 +1,23 @@
 import {
-  applyMiddleware,
   compose,
-  createStore as createReduxStore
+  createStore as createReduxStore,
+  applyMiddleware,
+  createStore
 } from "redux";
-import thunk from "redux-thunk";
-import browserHistory from "react-router";
+import { createEpicMiddleware } from "redux-observable";
+import { routerMiddleware } from "connected-react-router";
+import { appHistory } from "../../AppHistory";
 
-const createStore = (initialState = {}) => {
-  // ======================================================
-  // Middleware Configuration
-  // ======================================================
-  const middleware = [thunk];
+const epic = createEpicMiddleware();
 
-  // ======================================================
-  // Store Enhancers
-  // ======================================================
-  const enhancers = [];
-  let composeEnhancers = compose;
+const middlewareList = [epic, routerMiddleware(appHistory())];
+const windowlfDefined = typeof window === "undefined" ? null : (window as any);
+const composeEnhancers =
+  windowlfDefined.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const middlewares = composeEnhancers(applyMiddleware(...middlewareList));
 
-  if (__DEV__) {
-    if (typeof window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ === "function") {
-      composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
-    }
-  }
+const store = createStore(rootReducer(appHistory()), middlewares);
 
-  // ======================================================
-  // Store Instantiation and HMR Setup
-  // ======================================================
-  const store = createReduxStore(
-    makeRootReducer(),
-    initialState,
-    composeEnhancers(applyMiddleware(...middleware), ...enhancers)
-  );
-  store.asyncReducers = {};
+//epic.run(epics);
 
-  // To unsubscribe, invoke `store.unsubscribeHistory()` anytime
-  store.unsubscribeHistory = browserHistory.listen(updateLocation(store));
-
-  if (module.hot) {
-    module.hot.accept("./reducers", () => {
-      const reducers = require("./reducers").default;
-      store.replaceReducer(reducers(store.asyncReducers));
-    });
-  }
-
-  return store;
-};
-
-export default createStore;
+export { store };
