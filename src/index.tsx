@@ -3,9 +3,7 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter } from "react-router-dom";
-import createStore from "./redux/store/storeCreator";
-
-const store = createStore();
+import store from "./redux/store/storeCreator";
 
 ReactDOM.render(
   <BrowserRouter>

@@ -7,6 +7,7 @@ import {
 import { createEpicMiddleware } from "redux-observable";
 import { routerMiddleware } from "connected-react-router";
 import { appHistory } from "../../AppHistory";
+import { rootReducer } from "../reducer/rootReducer";
 
 const epic = createEpicMiddleware();
 
@@ -20,4 +21,4 @@ const store = createStore(rootReducer(appHistory()), middlewares);
 
 //epic.run(epics);
 
-export { store };
+export default store;

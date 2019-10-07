@@ -5,11 +5,11 @@ import {
   LocationChangeAction
 } from "connected-react-router";
 import { History } from "history";
-import { reducers } from "./reducers";
+import appContainerReducer from "./reducer";
 
 export const rootReducer = (history: History) =>
   combineReducers({
-    ...reducers,
+    ...appContainerReducer,
     router: (connectRouter(history) as unknown) as Reducer<
       RouterState,
       LocationChangeAction
