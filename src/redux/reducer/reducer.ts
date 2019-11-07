@@ -3,7 +3,7 @@ import { appActions } from "../actions/app-actions";
 import { IAppAction } from "../actions/IAppAction";
 
 const handlers = {
-  [appActions.APP_INITIALIZE]: (state: IAppState, payload: any): IAppState => ({
+  [appActions.LOG_IN]: (state: IAppState, payload: any): IAppState => ({
     ...state
   })
 };

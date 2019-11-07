@@ -1,7 +1,7 @@
-import { IUserState } from "./IUserState";
+import { IAppUser } from "../../models/user";
 
 export interface IAppState {
-  User: IUserState | null;
+  User: IAppUser | null;
 }
 
 const defaultState: IAppState = {
