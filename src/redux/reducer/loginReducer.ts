@@ -6,10 +6,14 @@ const handlers = {
   [appActions.LOG_IN_SUCCESS]: (state: IAppState, payload: any): IAppState => ({
     ...state,
     User: payload
+  }),
+  [appActions.LOG_OUT]: (state: IAppState, payload: any): IAppState => ({
+    ...state,
+    User: null
   })
 };
 
-const appContainerReducer = (
+const loginReducer = (
   state: IAppState = getDefaultAppContainerState(),
   action: IAppAction
 ) => {
@@ -18,4 +22,4 @@ const appContainerReducer = (
     : state;
 };
 
-export default appContainerReducer;
+export default loginReducer;

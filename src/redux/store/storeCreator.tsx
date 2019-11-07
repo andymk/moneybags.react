@@ -3,7 +3,7 @@ import { createEpicMiddleware } from "redux-observable";
 import { routerMiddleware } from "connected-react-router";
 import { appHistory } from "../../AppHistory";
 import { rootReducer } from "../reducer/rootReducer";
-
+import { getDefaultAppContainerState } from "../state/IAppState";
 const epic = createEpicMiddleware();
 
 const middlewareList = [epic, routerMiddleware(appHistory())];
@@ -12,7 +12,11 @@ const composeEnhancers =
   windowlfDefined.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const middlewares = composeEnhancers(applyMiddleware(...middlewareList));
 
-const store = createStore(rootReducer(appHistory()), middlewares);
+const store = createStore(
+  rootReducer(appHistory()),
+  getDefaultAppContainerState(),
+  middlewares
+);
 
 //epic.run(epics);
 

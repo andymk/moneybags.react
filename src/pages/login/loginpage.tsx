@@ -5,8 +5,8 @@ import * as actions from "../../redux/actions/app-actions";
 
 const LoginPage = () => {
   const dispatch = useDispatch();
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("user1");
+  const [password, setPassword] = useState("test");
 
   const onSubmit = (event: any) => {
     event.preventDefault();
@@ -33,6 +33,7 @@ const LoginPage = () => {
                   className="validate"
                   name="username"
                   type="text"
+                  value={username}
                   onChange={e => setUsername(e.target.value)}
                 />
                 <label htmlFor="username">Username</label>
@@ -42,6 +43,7 @@ const LoginPage = () => {
                   className="validate"
                   name="password"
                   type="password"
+                  value={password}
                   onChange={e => setPassword(e.target.value)}
                 />
                 <label htmlFor="password">Password</label>
