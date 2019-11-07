@@ -11,9 +11,9 @@ export const fnLogin = (): IAppAction => ({
   payload: null
 });
 
-export const fnLoginSuccess = (): IAppAction => ({
+export const fnLoginSuccess = (payload: any): IAppAction => ({
   type: appActions.LOG_IN_SUCCESS,
-  payload: null
+  payload
 });
 
 export const fnLoginError = (): IAppAction => ({

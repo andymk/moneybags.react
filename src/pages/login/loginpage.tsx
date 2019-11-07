@@ -1,17 +1,20 @@
 import Axios from "axios";
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import * as actions from "../../redux/actions/app-actions";
 
 const LoginPage = () => {
+  const dispatch = useDispatch();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const onSubmit = (event: any) => {
     event.preventDefault();
+    console.log("login");
     const data = { username, password };
-    const p = JSON.stringify(data);
     Axios.post("/security/login", data)
       .then(res => {
-        console.log(res);
+        dispatch(actions.fnLoginSuccess(res.data));
       })
       .catch(err => {
         console.log(err);

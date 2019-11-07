@@ -3,8 +3,9 @@ import { appActions } from "../actions/app-actions";
 import { IAppAction } from "../actions/IAppAction";
 
 const handlers = {
-  [appActions.LOG_IN]: (state: IAppState, payload: any): IAppState => ({
-    ...state
+  [appActions.LOG_IN_SUCCESS]: (state: IAppState, payload: any): IAppState => ({
+    ...state,
+    User: payload
   })
 };
 

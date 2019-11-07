@@ -1,9 +1,4 @@
-import {
-  compose,
-  createStore as createReduxStore,
-  applyMiddleware,
-  createStore
-} from "redux";
+import { compose, applyMiddleware, createStore } from "redux";
 import { createEpicMiddleware } from "redux-observable";
 import { routerMiddleware } from "connected-react-router";
 import { appHistory } from "../../AppHistory";

@@ -9,7 +9,7 @@ import appContainerReducer from "./reducer";
 
 export const rootReducer = (history: History) =>
   combineReducers({
-    ...appContainerReducer,
+    appContainerReducer,
     router: (connectRouter(history) as unknown) as Reducer<
       RouterState,
       LocationChangeAction
