@@ -7,6 +7,7 @@ import "../node_modules/materialize-css/dist/js/materialize.min.js";
 import "./App.css";
 
 import NavBar from "./components/navbar";
+import SideBar from "./components/sidebar";
 import HomePage from "./pages/home";
 import LoginPage from "./pages/login/loginpage";
 import { Provider } from "react-redux";
@@ -23,9 +24,9 @@ const App = ({ store }: IAppProps) => {
   return (
     <Provider store={store}>
       <Router>
-        <NavBar />
+        <SideBar />
         <main>
-          <div className="container">
+          <div className="main-panel">
             <Route exact path="/" component={HomePage} />
             <Route exact path="/login" component={LoginPage} />
           </div>

@@ -1,11 +1,3 @@
-nav {
-  background-color: #ffffff;
-}
-nav .brand-logo,
-nav ul a {
-  color: #000000;
-}
-
 .card.card-login {
   display: flex;
 }
@@ -15,4 +7,50 @@ nav ul a {
 
 .card .card-title {
   font-weight: normal;
+}
+
+.sidenav-main {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  width: 260px;
+  height: 100%;
+}
+
+.sidenav {
+  top: 0px;
+  width: inherit;
+  height: 100%;
+}
+
+.brand-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 64px;
+  background: #fff;
+}
+
+.brand-sidebar .brand-logo {
+  padding: 22px 12px;
+  margin: 1px 0;
+  position: absolute;
+  color: #222;
+}
+
+.brand-sidebar span.brand-logo {
+  font-size: 24px;
+  padding-left: 8px;
+}
+
+.main-panel {
+  padding-left: 260px;
+  background-color: #559;
+}
+
+ul.sidenav.sidenav-fixed a {
+  font-size: 13px;
+  line-height: 44px;
+  height: 44px;
+  padding: 0 30px;
 }
