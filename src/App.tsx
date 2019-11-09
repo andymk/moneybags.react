@@ -24,12 +24,13 @@ const App = ({ store }: IAppProps) => {
     <Provider store={store}>
       <Router>
         <SideBar />
-        <main>
-          <div className="main-panel">
+        <div id="content-wrapper" className="d-flex flex-column">
+          <div id="content">
+            <NavBar />
             <Route exact path="/" component={HomePage} />
             <Route exact path="/login" component={LoginPage} />
           </div>
-        </main>
+        </div>
       </Router>
     </Provider>
   );

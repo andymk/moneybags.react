@@ -6,28 +6,28 @@ import { IAppState } from "../redux/state/IAppState";
 const NavBar = () => {
   const user = useSelector((state: any) => state.loginReducer.User);
   return (
-    <header className="page-topbar">
-      <div className="navbar navbar-fixed">
-        <nav className="navbar-main navbar-color nav-collapsible sideNav-lock navbar-dark">
-          <div className="nav-wrapper">
-            <div className="col s12">
-              <ul id="nav-mobile" className="right hide-on-med-and-down">
-                {user && (
-                  <li>
-                    <Link to="/login/logout=true">Logout</Link>
-                  </li>
-                )}
-                {!user && (
-                  <li>
-                    <Link to="/login">Login</Link>
-                  </li>
-                )}
-              </ul>
-            </div>
-          </div>
-        </nav>
-      </div>
-    </header>
+    <nav className="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+      <ul className="navbar-nav ml-auto">
+        <li className="nav-item dropdown no-arrow">
+          <a
+            className="nav-link dropdown-toggle"
+            href="#"
+            id="userDropdown"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false">
+            <span className="mr-2 d-none d-lg-inline text-gray-600 small">
+              User1
+            </span>
+            <img
+              className="img-profile rounded-circle"
+              src="https://source.unsplash.com/QAB-WJcbgJk/60x60"
+            />
+          </a>
+        </li>
+      </ul>
+    </nav>
   );
 };
 
