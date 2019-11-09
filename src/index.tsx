@@ -11,7 +11,7 @@ ReactDOM.render(
   <BrowserRouter>
     <App store={store} />
   </BrowserRouter>,
-  document.getElementById("root")
+  document.getElementById("wrapper")
 );
 
 // If you want your app to work offline and load faster, you can change

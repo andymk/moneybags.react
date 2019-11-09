@@ -23,7 +23,7 @@ const App = ({ store }: IAppProps) => {
   return (
     <Provider store={store}>
       <Router>
-        <Button>Test Button</Button>
+        <SideBar />
         <main>
           <div className="main-panel">
             <Route exact path="/" component={HomePage} />
