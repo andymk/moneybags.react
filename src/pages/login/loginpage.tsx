@@ -7,51 +7,92 @@ const LoginPage = () => {
   const dispatch = useDispatch();
   const [username, setUsername] = useState("user1");
   const [password, setPassword] = useState("test");
+  const [error, setError] = useState("");
 
   const onSubmit = (event: any) => {
     event.preventDefault();
-    console.log("login");
+    setError("");
     const data = { username, password };
     Axios.post("/security/login", data)
       .then(res => {
         dispatch(actions.fnLoginSuccess(res.data));
       })
       .catch(err => {
-        console.log(err);
+        setError(err.response.data);
       });
   };
 
   return (
-    <div className="row">
-      <div className="col s6 offset-s3">
-        <div className="card card-login">
-          <div className="card-content">
-            <span className="card-title">Log In</span>
-            <form onSubmit={onSubmit}>
-              <div className="input-field">
-                <input
-                  className="validate"
-                  name="username"
-                  type="text"
-                  value={username}
-                  onChange={e => setUsername(e.target.value)}
-                />
-                <label htmlFor="username">Username</label>
+    <div className="row justify-content-center">
+      <div className="col-xl-10 col-lg-12 col-md-9">
+        <div className="card o-hidden border-0 shadow-lg my-5">
+          <div className="card-body p-0">
+            <div className="row">
+              <div className="col-lg-6 d-none d-lg-block bg-login-image"></div>
+              <div className="col-lg-6">
+                <div className="p-5">
+                  <div className="text-center">
+                    <h1 className="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                  </div>
+                  <form className="user" onSubmit={onSubmit}>
+                    <div className="form-group">
+                      <input
+                        className="form-control form-control-user"
+                        name="username"
+                        type="text"
+                        value={username}
+                        onChange={e => setUsername(e.target.value)}
+                        aria-describedby="emailHelp"
+                        placeholder="Enter Email Address..."
+                      />
+                    </div>
+                    <div className="form-group">
+                      <input
+                        className="form-control form-control-user"
+                        name="password"
+                        type="password"
+                        value={password}
+                        onChange={e => setPassword(e.target.value)}
+                        placeholder="Password"
+                      />
+                    </div>
+                    <div className="form-group">
+                      <div className="custom-control custom-checkbox small">
+                        <input
+                          type="checkbox"
+                          className="custom-control-input"
+                          id="customCheck"
+                        />
+                        <label className="custom-control-label">
+                          Remember Me
+                        </label>
+                      </div>
+                    </div>
+                    {error && (
+                      <div className="alert alert-danger" role="alert">
+                        {error}
+                      </div>
+                    )}
+                    <button
+                      type="submit"
+                      className="btn btn-primary btn-user btn-block">
+                      Login
+                    </button>
+                  </form>
+                  <hr />
+                  <div className="text-center">
+                    <a className="small" href="forgot-password.html">
+                      Forgot Password?
+                    </a>
+                  </div>
+                  <div className="text-center">
+                    <a className="small" href="register.html">
+                      Create an Account!
+                    </a>
+                  </div>
+                </div>
               </div>
-              <div className="input-field">
-                <input
-                  className="validate"
-                  name="password"
-                  type="password"
-                  value={password}
-                  onChange={e => setPassword(e.target.value)}
-                />
-                <label htmlFor="password">Password</label>
-              </div>
-              <div>
-                <input className="btn right" type="submit" value="Log In" />
-              </div>
-            </form>
+            </div>
           </div>
         </div>
       </div>
