@@ -1,7 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useFetchAccounts } from "../dataAccess/accounts/fetchAccounts";
 
 const SideBar = () => {
+  const accounts = useFetchAccounts();
+  const dispatch = useDispatch();
+
+  const accountItem = () => (
+    <li className="nav-item">
+      <a className="nav-link" href="tables.html">
+        <i className="fas fa-fw fa-table"></i>
+        <span>Bank Account £12,123.23</span>
+      </a>
+    </li>
+  );
+
+  useEffect(() => {
+    console.log({ accounts });
+  });
   return (
     <ul className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion">
       <a
@@ -39,13 +56,13 @@ const SideBar = () => {
           <i className="fas fa-fw fa-table"></i>
           <span>Bank Account £12,123.23</span>
         </a>
-      </li>{" "}
+      </li>
       <li className="nav-item">
         <a className="nav-link" href="tables.html">
           <i className="fas fa-fw fa-table"></i>
           <span>Savings Account £0.01</span>
         </a>
-      </li>{" "}
+      </li>
       <li className="nav-item">
         <a className="nav-link" href="tables.html">
           <i className="fas fa-fw fa-table"></i>
