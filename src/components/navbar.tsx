@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { IAppState } from "../redux/state/IAppState";
 
 const NavBar = () => {
-  const user = useSelector((state: any) => state.loginReducer.User);
+  const user = useSelector((state: any) => state.user.User);
   return (
     <nav className="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
       <ul className="navbar-nav ml-auto">
@@ -18,7 +18,7 @@ const NavBar = () => {
             aria-haspopup="true"
             aria-expanded="false">
             <span className="mr-2 d-none d-lg-inline text-gray-600 small">
-              User1
+              {user && user.userName}
             </span>
             <img
               className="img-profile rounded-circle"

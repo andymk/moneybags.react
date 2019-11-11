@@ -9,7 +9,7 @@ import loginReducer from "./loginReducer";
 
 export const rootReducer = (history: History) =>
   combineReducers({
-    loginReducer,
+    user: loginReducer,
     router: (connectRouter(history) as unknown) as Reducer<
       RouterState,
       LocationChangeAction
