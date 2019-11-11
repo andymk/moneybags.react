@@ -2,6 +2,7 @@ import Axios from "axios";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import * as actions from "../../redux/actions/app-actions";
+import { push } from "react-router-redux";
 
 const LoginPage = () => {
   const dispatch = useDispatch();
@@ -16,6 +17,7 @@ const LoginPage = () => {
     Axios.post("/security/login", data)
       .then(res => {
         dispatch(actions.fnLoginSuccess(res.data));
+        dispatch(push("/"));
       })
       .catch(err => {
         setError(err.response.data);
