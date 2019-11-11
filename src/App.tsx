@@ -23,15 +23,9 @@ const App = ({ store }: IAppProps) => {
   return (
     <Provider store={store}>
       <Router>
-        <SideBar />
-        <div id="content-wrapper" className="d-flex flex-column">
-          <div id="content">
-            <NavBar />
-            <Route exact path="/" component={HomePage} />
-            <Route exact path="/login" component={LoginPage} />
-            <Route exact path="/budgets" component={BudgetPage} />
-          </div>
-        </div>
+        <Route exact path="/" component={HomePage} />
+        <Route exact path="/login" component={LoginPage} />
+        <Route exact path="/budgets" component={BudgetPage} />
       </Router>
     </Provider>
   );
