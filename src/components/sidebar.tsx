@@ -14,23 +14,23 @@ const SideBar = () => {
       </a>
       <hr className="sidebar-divider my-0"></hr>
       <li className="nav-item active">
-        <a className="nav-link" href="index.html">
+        <Link to="/" className="nav-link">
           <i className="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span>
-        </a>
+        </Link>
       </li>
       <hr className="sidebar-divider" />
       <li className="nav-item">
-        <a className="nav-link" href="tables.html">
+        <Link to="/budgets" className="nav-link">
           <i className="fas fa-fw fa-table"></i>
           <span>Budgets</span>
-        </a>
+        </Link>
       </li>
       <li className="nav-item">
-        <a className="nav-link" href="tables.html">
+        <Link to="/planning" className="nav-link">
           <i className="fas fa-fw fa-table"></i>
           <span>Planning</span>
-        </a>
+        </Link>
       </li>
       <hr className="sidebar-divider" />
       <div className="sidebar-heading">Accounts</div>

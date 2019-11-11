@@ -8,8 +8,8 @@ import NavBar from "./components/navbar";
 import SideBar from "./components/sidebar";
 import HomePage from "./pages/home";
 import LoginPage from "./pages/login/loginpage";
+import BudgetPage from "./pages/budget-page";
 import { Provider } from "react-redux";
-import Button from "react-bootstrap/Button";
 
 axios.defaults.baseURL = "http://localhost:5000/api";
 
@@ -29,6 +29,7 @@ const App = ({ store }: IAppProps) => {
             <NavBar />
             <Route exact path="/" component={HomePage} />
             <Route exact path="/login" component={LoginPage} />
+            <Route exact path="/budgets" component={BudgetPage} />
           </div>
         </div>
       </Router>
