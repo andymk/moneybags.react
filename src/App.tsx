@@ -7,6 +7,8 @@ import "./App.css";
 import HomePage from "./pages/home";
 import LoginPage from "./pages/login/loginpage";
 import BudgetPage from "./pages/budget-page";
+import TransactionsPage from "./pages/transactions";
+
 import { Provider } from "react-redux";
 
 axios.defaults.baseURL = "http://localhost:5000/api";
@@ -24,6 +26,7 @@ const App = ({ store }: IAppProps) => {
         <Route exact path="/" component={HomePage} />
         <Route exact path="/login" component={LoginPage} />
         <Route exact path="/budgets" component={BudgetPage} />
+        <Route path="/transactions" component={TransactionsPage} />
       </Router>
     </Provider>
   );

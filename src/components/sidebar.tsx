@@ -9,7 +9,7 @@ const SideBar = () => {
   const renderAccounts = (acc: IAccount[]) =>
     acc.map((item: IAccount) => (
       <li className="nav-item" key={item.id}>
-        <Link to={"/transactions/" + item.id} className="nav-link" href="">
+        <Link to={"/transactions/" + item.id} className="nav-link">
           <i className="fas fa-fw fa-table"></i>
           <span>
             {item.name} £{item.balance.toFixed(2)}
