@@ -10,18 +10,22 @@ const LoginPage = () => {
   const [username, setUsername] = useState("user1");
   const [password, setPassword] = useState("test");
   const [error, setError] = useState("");
+  const [inProgress, setInProgress] = useState(false);
 
   const onSubmit = (event: any) => {
     event.preventDefault();
     setError("");
+    setInProgress(true);
     const data = { username, password };
     Axios.post("/security/login", data)
       .then(res => {
         dispatch(actions.fnLoginSuccess(res.data));
+        setInProgress(false);
         dispatch(push("/"));
       })
       .catch(err => {
         setError(err.response.data);
+        setInProgress(false);
       });
   };
 
@@ -80,7 +84,14 @@ const LoginPage = () => {
                         )}
                         <button
                           type="submit"
-                          className="btn btn-primary btn-user btn-block">
+                          className="btn btn-primary btn-user btn-block"
+                          disabled={inProgress}>
+                          {inProgress && (
+                            <span
+                              className="spinner-border spinner-border-sm"
+                              role="status"
+                              aria-hidden="true"></span>
+                          )}
                           Login
                         </button>
                       </form>
