@@ -51,6 +51,13 @@ const SideBar = () => {
       <hr className="sidebar-divider" />
       <div className="sidebar-heading">Accounts</div>
       {accounts && renderAccounts(accounts)}
+      <hr className="sidebar-divider" />
+      <li className="nav-item">
+        <Link to="/login" className="nav-link">
+          <i className="fas fa-fw fa-sign-out"></i>
+          <span>Log out</span>
+        </Link>
+      </li>
     </ul>
   );
 };
