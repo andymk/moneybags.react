@@ -9,6 +9,7 @@ const HomePage = () => {
       <div id="content-wrapper" className="d-flex flex-column">
         <div id="content">
           <NavBar />
+          <h3>Dashboard</h3>
         </div>
       </div>
     </React.Fragment>

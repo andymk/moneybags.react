@@ -1,24 +1,23 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
 import { useFetchAccounts } from "../dataAccess/accounts/fetchAccounts";
+import { IAccount } from "../models/accounts";
 
 const SideBar = () => {
   const accounts = useFetchAccounts();
-  const dispatch = useDispatch();
 
-  const accountItem = () => (
-    <li className="nav-item">
-      <a className="nav-link" href="tables.html">
-        <i className="fas fa-fw fa-table"></i>
-        <span>Bank Account £12,123.23</span>
-      </a>
-    </li>
-  );
+  const renderAccounts = (acc: IAccount[]) =>
+    acc.map((item: IAccount) => (
+      <li className="nav-item" key={item.id}>
+        <Link to={"/transactions/" + item.id} className="nav-link" href="">
+          <i className="fas fa-fw fa-table"></i>
+          <span>
+            {item.name} £{item.balance.toFixed(2)}
+          </span>
+        </Link>
+      </li>
+    ));
 
-  useEffect(() => {
-    console.log({ accounts });
-  });
   return (
     <ul className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion">
       <a
@@ -51,35 +50,9 @@ const SideBar = () => {
       </li>
       <hr className="sidebar-divider" />
       <div className="sidebar-heading">Accounts</div>
-      <li className="nav-item">
-        <a className="nav-link" href="tables.html">
-          <i className="fas fa-fw fa-table"></i>
-          <span>Bank Account £12,123.23</span>
-        </a>
-      </li>
-      <li className="nav-item">
-        <a className="nav-link" href="tables.html">
-          <i className="fas fa-fw fa-table"></i>
-          <span>Savings Account £0.01</span>
-        </a>
-      </li>
-      <li className="nav-item">
-        <a className="nav-link" href="tables.html">
-          <i className="fas fa-fw fa-table"></i>
-          <span>Credit Card -£500.00</span>
-        </a>
-      </li>
+      {accounts && renderAccounts(accounts)}
     </ul>
   );
 };
 
 export default SideBar;
-
-{
-  /* <li className="active bold open">
-        <Link to="">Home</Link>
-      </li>
-      <li className="bold">
-        <Link to="">Accounts</Link>
-      </li> */
-}

@@ -1,7 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { IAppState } from "../redux/state/IAppState";
 
 const NavBar = () => {
   const user = useSelector((state: any) => state.user.User);
