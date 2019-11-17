@@ -26,7 +26,10 @@ const App = ({ store }: IAppProps) => {
         <Route exact path="/" component={HomePage} />
         <Route exact path="/login" component={LoginPage} />
         <Route exact path="/budgets" component={BudgetPage} />
-        <Route path="/transactions" component={TransactionsPage} />
+        <Route
+          path="/transactions/accounts/:accountid"
+          component={TransactionsPage}
+        />
       </Router>
     </Provider>
   );

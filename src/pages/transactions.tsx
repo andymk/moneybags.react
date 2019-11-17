@@ -1,7 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import SideBar from "../components/sidebar";
+import { useFetchTransactions } from "../dataAccess/transactions/fetchTransactions";
+import { ITransaction } from "../models/transaction";
 
-const TransactionsPage = () => {
+const TransactionsPage = (props: any) => {
+  const transactions = useFetchTransactions(props.match.params.accountid);
+
+  const renderRows = (transList: ITransaction[]) =>
+    transList.map((tx: ITransaction) => (
+      <tr>
+        <td>{tx.date}</td>
+        <td>{tx.category}</td>
+        <td>{tx.description}</td>
+        <td>£{tx.debit}</td>
+        <td>£{tx.credit}</td>
+        <td></td>
+      </tr>
+    ));
+
   return (
     <React.Fragment>
       <SideBar />
@@ -20,16 +36,7 @@ const TransactionsPage = () => {
                   <th>Balance</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td>12/11/19</td>
-                  <td>Entertainment</td>
-                  <td>Curzon Cinema</td>
-                  <td>£17.99</td>
-                  <td></td>
-                  <td>£100.32</td>
-                </tr>
-              </tbody>
+              <tbody>{transactions && renderRows(transactions)}</tbody>
             </table>
           </div>
         </div>
