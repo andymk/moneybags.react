@@ -19,46 +19,74 @@ const SideBar = () => {
     ));
 
   return (
-    <ul className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion">
-      <a
-        className="sidebar-brand d-flex align-items-center justify-content-center"
-        href="index.html">
-        <div className="sidebar-brand-icon rotate-n-15">
-          <i className="fas fa-laugh-wink"></i>
-        </div>
-        <div className="sidebar-brand-text mx-3">Moneybags</div>
+    <div className="main-sidebar sidebar-dark-primary elevation-4">
+      <a href="index3.html" className="brand-link">
+        <img
+          src="dist/img/AdminLTELogo.png"
+          alt="AdminLTE Logo"
+          className="brand-image img-circle elevation-3"
+        />
+        <span className="brand-text font-weight-light">AdminLTE 3</span>
       </a>
-      <hr className="sidebar-divider my-0"></hr>
-      <li className="nav-item active">
-        <Link to="/" className="nav-link">
-          <i className="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span>
-        </Link>
-      </li>
-      <hr className="sidebar-divider" />
-      <li className="nav-item">
-        <Link to="/budgets" className="nav-link">
-          <i className="fas fa-fw fa-table"></i>
-          <span>Budgets</span>
-        </Link>
-      </li>
-      <li className="nav-item">
-        <Link to="/planning" className="nav-link">
-          <i className="fas fa-fw fa-table"></i>
-          <span>Planning</span>
-        </Link>
-      </li>
-      <hr className="sidebar-divider" />
-      <div className="sidebar-heading">Accounts</div>
-      {accounts && renderAccounts(accounts)}
-      <hr className="sidebar-divider" />
-      <li className="nav-item">
-        <Link to="/login" className="nav-link">
-          <i className="fas fa-fw fa-sign-out"></i>
-          <span>Log out</span>
-        </Link>
-      </li>
-    </ul>
+
+      <div className="sidebar">
+        <div className="user-panel mt-3 pb-3 mb-3 d-flex">
+          <div className="image">
+            <img
+              src="dist/img/user2-160x160.jpg"
+              className="img-circle elevation-2"
+              alt="User Image"
+            />
+          </div>
+          <div className="info">
+            <a href="#" className="d-block">
+              Alexander Pierce
+            </a>
+          </div>
+        </div>
+
+        <nav className="mt-2">
+          <ul
+            className="nav nav-pills nav-sidebar flex-column"
+            data-widget="treeview"
+            role="menu"
+            data-accordion="false">
+            <li className="nav-item has-treeview menu-open">
+              <a href="#" className="nav-link active">
+                <i className="nav-icon fas fa-tachometer-alt"></i>
+                <p>
+                  Starter Pages
+                  <i className="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul className="nav nav-treeview">
+                <li className="nav-item">
+                  <a href="#" className="nav-link active">
+                    <i className="far fa-circle nav-icon"></i>
+                    <p>Active Page</p>
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a href="#" className="nav-link">
+                    <i className="far fa-circle nav-icon"></i>
+                    <p>Inactive Page</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li className="nav-item">
+              <a href="#" className="nav-link">
+                <i className="nav-icon fas fa-th"></i>
+                <p>
+                  Simple Link
+                  <span className="right badge badge-danger">New</span>
+                </p>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
   );
 };
 

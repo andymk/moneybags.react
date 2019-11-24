@@ -22,7 +22,9 @@ const App = ({ store }: IAppProps) => {
   return (
     <Provider store={store}>
       <PersistGate persistor={persistor}>
-        <AppRouter />
+        <div className="wrapper">
+          <AppRouter />
+        </div>
       </PersistGate>
     </Provider>
   );

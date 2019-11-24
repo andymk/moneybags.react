@@ -35,7 +35,7 @@ export function useFetchTransactions(requestData: any) {
           console.log({ error });
         }
       );
-  }, []);
+  }, [requestData]);
 
   return data;
 }

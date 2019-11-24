@@ -4,8 +4,8 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter } from "react-router-dom";
 import store from "./redux/store/storeCreator";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./css/sb-admin-2.min.css";
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import "../node_modules/admin-lte/dist/css/adminlte.min.css";
 
 ReactDOM.render(
   <BrowserRouter>
