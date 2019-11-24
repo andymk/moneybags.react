@@ -10,6 +10,7 @@ import BudgetPage from "./pages/budget-page";
 import TransactionsPage from "./pages/transactions";
 
 import { Provider } from "react-redux";
+import { AppRouter } from "./AppRouter";
 
 axios.defaults.baseURL = "http://localhost:5000/api";
 
@@ -22,15 +23,7 @@ interface IAppProps {
 const App = ({ store }: IAppProps) => {
   return (
     <Provider store={store}>
-      <Router>
-        <Route exact path="/" component={HomePage} />
-        <Route exact path="/login" component={LoginPage} />
-        <Route exact path="/budgets" component={BudgetPage} />
-        <Route
-          path="/transactions/accounts/:accountid"
-          component={TransactionsPage}
-        />
-      </Router>
+      <AppRouter />
     </Provider>
   );
 };
