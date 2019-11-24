@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 const NavBar = () => {
-  const user = useSelector((state: any) => state.user.User);
+  const user = useSelector((state: any) => state.session.User);
   return (
     <nav className="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
       <ul className="navbar-nav ml-auto">

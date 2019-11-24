@@ -4,20 +4,30 @@ import { routerMiddleware } from "connected-react-router";
 import { appHistory } from "../../AppHistory";
 import { rootReducer } from "../reducer/rootReducer";
 import { getDefaultAppContainerState } from "../state/IAppState";
-const epic = createEpicMiddleware();
+import { persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage";
 
-const middlewareList = [epic, routerMiddleware(appHistory())];
+const epic = createEpicMiddleware();
 const windowlfDefined = typeof window === "undefined" ? null : (window as any);
 const composeEnhancers =
   windowlfDefined.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const middlewareList = [epic, routerMiddleware(appHistory())];
 const middlewares = composeEnhancers(applyMiddleware(...middlewareList));
 
+const persistConfig = {
+  key: "root",
+  storage
+};
+
+const persistedReducer = persistReducer(
+  persistConfig,
+  rootReducer(appHistory())
+);
+
 const store = createStore(
-  rootReducer(appHistory()),
+  persistedReducer,
   getDefaultAppContainerState(),
   middlewares
 );
-
-//epic.run(epics);
 
 export default store;

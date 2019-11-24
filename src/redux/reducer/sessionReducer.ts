@@ -13,7 +13,7 @@ const handlers = {
   })
 };
 
-const loginReducer = (
+const sessionReducer = (
   state: IAppState = getDefaultAppContainerState(),
   action: IAppAction
 ) => {
@@ -22,4 +22,4 @@ const loginReducer = (
     : state;
 };
 
-export default loginReducer;
+export default sessionReducer;

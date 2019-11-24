@@ -4,13 +4,10 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import "./App.css";
 
-import HomePage from "./pages/home";
-import LoginPage from "./pages/login/loginpage";
-import BudgetPage from "./pages/budget-page";
-import TransactionsPage from "./pages/transactions";
-
 import { Provider } from "react-redux";
 import { AppRouter } from "./AppRouter";
+import { persistStore } from "redux-persist";
+import { PersistGate } from "redux-persist/integration/react";
 
 axios.defaults.baseURL = "http://localhost:5000/api";
 
@@ -21,9 +18,12 @@ interface IAppProps {
 }
 
 const App = ({ store }: IAppProps) => {
+  const persistor = persistStore(store);
   return (
     <Provider store={store}>
-      <AppRouter />
+      <PersistGate persistor={persistor}>
+        <AppRouter />
+      </PersistGate>
     </Provider>
   );
 };

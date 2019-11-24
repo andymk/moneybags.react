@@ -8,7 +8,7 @@ import { IAppState } from "../../redux/state/IAppState";
 
 export function useFetchAccounts() {
   const [data, setData] = useState<IAccount[]>();
-  const currentUser: any = useSelector((state: any) => state.user.User);
+  const currentUser: any = useSelector((state: any) => state.session.User);
 
   const config = (url: string, dataObj: any, token: string) => {
     console.log(token);
