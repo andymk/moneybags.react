@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 
 export function useFetchTransactions(requestData: any) {
   const [data, setData] = useState<ITransaction[]>();
-  const currentUser: any = useSelector((state: any) => state.user.User);
+  const currentUser: any = useSelector((state: any) => state.session.User);
 
   const config = (url: string, dataObj: any, token: string) => {
     return {
