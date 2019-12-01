@@ -5,7 +5,7 @@ const NavBar = () => {
   const user = useSelector((state: any) => state.session.User);
   return (
     <React.Fragment>
-      <div className="main-header navbar navbar-expand navbar-white navbar-light">
+      <nav className="main-header navbar navbar-expand navbar-white navbar-light">
         <ul className="navbar-nav">
           <li className="nav-item">
             <a className="nav-link" data-widget="pushmenu" href="#">
@@ -13,7 +13,7 @@ const NavBar = () => {
             </a>
           </li>
           <li className="nav-item d-none d-sm-inline-block">
-            <a href="index3.html" className="nav-link">
+            <a href="../../index3.html" className="nav-link">
               Home
             </a>
           </li>
@@ -50,7 +50,7 @@ const NavBar = () => {
               <a href="#" className="dropdown-item">
                 <div className="media">
                   <img
-                    src="dist/img/user1-128x128.jpg"
+                    src="../../dist/img/user1-128x128.jpg"
                     alt="User Avatar"
                     className="img-size-50 mr-3 img-circle"
                   />
@@ -72,13 +72,13 @@ const NavBar = () => {
               <a href="#" className="dropdown-item">
                 <div className="media">
                   <img
-                    src="dist/img/user8-128x128.jpg"
+                    src="../../dist/img/user8-128x128.jpg"
                     alt="User Avatar"
                     className="img-size-50 img-circle mr-3"
                   />
                   <div className="media-body">
                     <h3 className="dropdown-item-title">
-                      {user && user.username}
+                      John Pierce
                       <span className="float-right text-sm text-muted">
                         <i className="fas fa-star"></i>
                       </span>
@@ -94,7 +94,7 @@ const NavBar = () => {
               <a href="#" className="dropdown-item">
                 <div className="media">
                   <img
-                    src="dist/img/user3-128x128.jpg"
+                    src="../../dist/img/user3-128x128.jpg"
                     alt="User Avatar"
                     className="img-size-50 img-circle mr-3"
                   />
@@ -124,7 +124,9 @@ const NavBar = () => {
               <span className="badge badge-warning navbar-badge">15</span>
             </a>
             <div className="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-              <span className="dropdown-header">15 Notifications</span>
+              <span className="dropdown-item dropdown-header">
+                15 Notifications
+              </span>
               <div className="dropdown-divider"></div>
               <a href="#" className="dropdown-item">
                 <i className="fas fa-envelope mr-2"></i> 4 new messages
@@ -156,7 +158,7 @@ const NavBar = () => {
             </a>
           </li>
         </ul>
-      </div>
+      </nav>
     </React.Fragment>
   );
 };

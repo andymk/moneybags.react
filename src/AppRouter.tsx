@@ -19,7 +19,6 @@ export const AppRouter = () => {
           component={TransactionsPage}
         />
       </Switch>
-      <Route render={() => <Redirect to="/" />} />
     </ConnectedRouter>
   );
 };
