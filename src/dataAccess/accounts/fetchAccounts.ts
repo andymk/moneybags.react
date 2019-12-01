@@ -2,9 +2,7 @@ import { useState, useEffect } from "react";
 import { endPointKeys } from "../../config/api-calls";
 import { IAccount } from "../../models/accounts";
 import axios from "axios";
-import { user } from "../../helpers/user";
 import { useSelector } from "react-redux";
-import { IAppState } from "../../redux/state/IAppState";
 
 export function useFetchAccounts() {
   const [data, setData] = useState<IAccount[]>();

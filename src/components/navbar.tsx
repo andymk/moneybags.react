@@ -58,7 +58,9 @@ const NavBar = () => {
         )}
       </a>
       <div className="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-        <span className="dropdown-item dropdown-header">15 Notifications</span>
+        <span className="dropdown-item dropdown-header">
+          {props.number} Notifications
+        </span>
         <div className="dropdown-divider"></div>
         <a href="#" className="dropdown-item">
           <i className="fas fa-envelope mr-2"></i> 4 new messages
