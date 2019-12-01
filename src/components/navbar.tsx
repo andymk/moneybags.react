@@ -38,11 +38,15 @@ const NavBar = () => {
     </form>
   );
 
-  const Notifications = () => (
+  const Notifications = (props: any) => (
     <li className="nav-item dropdown">
       <a className="nav-link" data-toggle="dropdown" href="#">
         <i className="far fa-bell"></i>
-        <span className="badge badge-warning navbar-badge">15</span>
+        {props.number && props.number > 0 && (
+          <span className="badge badge-warning navbar-badge">
+            {props.number}
+          </span>
+        )}
       </a>
       <div className="dropdown-menu dropdown-menu-lg dropdown-menu-right">
         <span className="dropdown-item dropdown-header">15 Notifications</span>
@@ -90,7 +94,7 @@ const NavBar = () => {
         </ul>
 
         <ul className="navbar-nav ml-auto">
-          <Notifications />
+          <Notifications number="0" />
         </ul>
       </nav>
     </React.Fragment>
