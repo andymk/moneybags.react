@@ -7,6 +7,21 @@ import img from "../MBLogo.png";
 const SideBar = () => {
   const accounts = useFetchAccounts();
 
+  const newBadge = () => <span className="right badge badge-danger">New</span>;
+  const infoBadge = () => <span className="badge badge-info right">6</span>;
+
+  const MenuItem = (props: any) => (
+    <li className="nav-item has-treeview">
+      <Link to={props.linkTo} className="nav-link">
+        <i className="nav-icon fas fa-tachometer-alt"></i>
+        <p>
+          {props.text}
+          <i className="right fas fa-angle-left"></i>
+        </p>
+      </Link>
+    </li>
+  );
+
   const renderAccounts = (acc: IAccount[]) =>
     acc.map((item: IAccount) => (
       <li className="nav-item" key={item.id}>
@@ -21,7 +36,7 @@ const SideBar = () => {
 
   return (
     <aside className="main-sidebar sidebar-dark-primary elevation-4">
-      <a href="../../index3.html" className="brand-link">
+      <a href="#" className="brand-link">
         <img
           src={img}
           alt="Logo"
@@ -37,42 +52,11 @@ const SideBar = () => {
             data-widget="treeview"
             role="menu"
             data-accordion="false">
-            <li className="nav-item has-treeview">
-              <a href="#" className="nav-link">
-                <i className="nav-icon fas fa-tachometer-alt"></i>
-                <p>
-                  Dashboard
-                  <i className="right fas fa-angle-left"></i>
-                </p>
-              </a>
-              <ul className="nav nav-treeview">
-                <li className="nav-item">
-                  <a href="../../index.html" className="nav-link">
-                    <i className="far fa-circle nav-icon"></i>
-                    <p>Dashboard v1</p>
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a href="../../index2.html" className="nav-link">
-                    <i className="far fa-circle nav-icon"></i>
-                    <p>Dashboard v2</p>
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a href="../../index3.html" className="nav-link">
-                    <i className="far fa-circle nav-icon"></i>
-                    <p>Dashboard v3</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
+            <MenuItem linkTo="/" text="Dashboard" />
             <li className="nav-item">
               <a href="../widgets.html" className="nav-link">
                 <i className="nav-icon fas fa-th"></i>
-                <p>
-                  Widgets
-                  <span className="right badge badge-danger">New</span>
-                </p>
+                <p>Widgets</p>
               </a>
             </li>
             <li className="nav-item has-treeview">
@@ -81,7 +65,6 @@ const SideBar = () => {
                 <p>
                   Layout Options
                   <i className="fas fa-angle-left right"></i>
-                  <span className="badge badge-info right">6</span>
                 </p>
               </a>
               <ul className="nav nav-treeview">
