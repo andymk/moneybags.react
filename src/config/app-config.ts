@@ -5,8 +5,8 @@ require("dotenv").config();
 const appConfig = {
   //endPoints: config.endPoints
   endPoints: {
-    //base: "http://localhost:5000"
-    base: "http://moneybags-api.azurewebsites.net"
+    //base: "http://localhost:5000/api"
+    base: "http://moneybags-api.azurewebsites.net/api"
   }
 };
 

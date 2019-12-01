@@ -8,8 +8,9 @@ import { AppRouter } from "./AppRouter";
 import { persistStore } from "redux-persist";
 import { PersistGate } from "redux-persist/integration/react";
 import "../node_modules/admin-lte/plugins/fontawesome-free/css/all.min.css";
+import appConfig from "./config/app-config";
 
-axios.defaults.baseURL = "http://localhost:5000/api";
+axios.defaults.baseURL = appConfig.endPoints.base;
 
 // const store = createStore();
 
