@@ -3,12 +3,33 @@ import { useSelector } from "react-redux";
 
 const NavBar = () => {
   const user = useSelector((state: any) => state.session.User);
+  const pushMenu = () => {
+    const body = document.body;
+    if (body.clientWidth > 768) {
+      if (body.className.indexOf("sidebar-collapse") === -1) {
+        body.className += " sidebar-collapse";
+      } else {
+        body.className = body.className.replace(" sidebar-collapse", "");
+      }
+    } else {
+      if (body.className.indexOf("sidebar-open") === -1) {
+        body.className += " sidebar-open";
+      } else {
+        body.className = body.className.replace(" sidebar-open", "");
+      }
+    }
+  };
+
   return (
     <React.Fragment>
       <nav className="main-header navbar navbar-expand navbar-white navbar-light">
         <ul className="navbar-nav">
           <li className="nav-item">
-            <a className="nav-link" data-widget="pushmenu" href="#">
+            <a
+              className="nav-link"
+              data-widget="pushmenu"
+              href="#"
+              onClick={pushMenu}>
               <i className="fas fa-bars"></i>
             </a>
           </li>
