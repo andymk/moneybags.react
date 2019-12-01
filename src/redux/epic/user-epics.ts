@@ -4,12 +4,6 @@ import { IAppAction } from "../actions/IAppAction";
 import { ActionsObservable, StateObservable, ofType } from "redux-observable";
 import { IAppState } from "../state/IAppState";
 import { IEpicDependency } from "../../models/epic-dependency";
-import {
-  appActions,
-  fnLoginSuccess,
-  fnLoginError
-} from "../actions/app-actions";
-import { fnLogin } from "../actions/app-actions";
 import { IAppUser } from "../../models/user";
 
 // export const loginEpic = (

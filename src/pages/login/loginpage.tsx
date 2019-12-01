@@ -1,7 +1,7 @@
 import Axios from "axios";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import * as actions from "../../redux/actions/app-actions";
+import * as actions from "../../redux/session/actions";
 import { push } from "react-router-redux";
 import { Link } from "react-router-dom";
 
@@ -95,7 +95,7 @@ const LoginPage = () => {
                           className="spinner-border spinner-border-sm"
                           role="status"
                           aria-hidden="true"></span>
-                      )}
+                      )}{" "}
                       Sign In
                     </button>
                   </div>

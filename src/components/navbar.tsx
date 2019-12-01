@@ -1,8 +1,17 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   const user = useSelector((state: any) => state.session.User);
+
+  const UserName = () => (
+    <li className="nav-item d-none d-sm-inline-block">
+      <Link to="/" className="nav-link">
+        {user && user.userName}
+      </Link>
+    </li>
+  );
   const pushMenu = () => {
     const body = document.body;
     if (body.clientWidth > 768) {
@@ -87,13 +96,14 @@ const NavBar = () => {
             </a>
           </li>
           <li className="nav-item d-none d-sm-inline-block">
-            <a href="../../index3.html" className="nav-link">
+            <Link to="/" className="nav-link">
               Home
-            </a>
+            </Link>
           </li>
         </ul>
 
         <ul className="navbar-nav ml-auto">
+          <UserName />
           <Notifications number="0" />
         </ul>
       </nav>

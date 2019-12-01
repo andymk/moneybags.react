@@ -3,9 +3,18 @@ import { Link } from "react-router-dom";
 import { useFetchAccounts } from "../dataAccess/accounts/fetchAccounts";
 import { IAccount } from "../models/accounts";
 import img from "../MBLogo.png";
+import { useDispatch } from "react-redux";
+import * as actions from "../redux/session/actions";
+import { push } from "react-router-redux";
 
 const SideBar = () => {
+  const dispatch = useDispatch();
   const accounts = useFetchAccounts();
+
+  const logOut = () => {
+    dispatch(actions.fnLogOut());
+    dispatch(push("/login"));
+  };
 
   const newBadge = () => <span className="right badge badge-danger">New</span>;
   const infoBadge = () => <span className="badge badge-info right">6</span>;
@@ -26,6 +35,15 @@ const SideBar = () => {
           {props.expand && <i className="right fas fa-angle-left"></i>}
         </p>
       </Link>
+    </li>
+  );
+
+  const SignOut = (props: any) => (
+    <li className="nav-item has-treeview">
+      <a className="nav-link" onClick={logOut}>
+        <i className="nav-icon fas fa-sign-out-alt"></i>
+        <p>Sign Out</p>
+      </a>
     </li>
   );
 
@@ -61,7 +79,7 @@ const SideBar = () => {
             data-accordion="false">
             <MenuItem linkTo="/" text="Dashboard" icon="fa-tachometer-alt" />
             <MenuHeader title="OPTIONS" />
-            <MenuItem linkTo="/login" text="Login" icon="fa-circle" />
+            <SignOut linkTo="/login" text="Login" icon="" />
           </ul>
         </nav>
       </div>

@@ -1,13 +1,17 @@
 import { IAppState, getDefaultAppContainerState } from "../state/IAppState";
-import { appActions } from "../actions/app-actions";
+import * as actions from "./actions";
+import { actionTypes } from "./actionTypes";
 import { IAppAction } from "../actions/IAppAction";
 
 const handlers = {
-  [appActions.LOG_IN_SUCCESS]: (state: IAppState, payload: any): IAppState => ({
+  [actionTypes.LOG_IN_SUCCESS]: (
+    state: IAppState,
+    payload: any
+  ): IAppState => ({
     ...state,
     User: payload
   }),
-  [appActions.LOG_OUT]: (state: IAppState, payload: any): IAppState => ({
+  [actionTypes.LOG_OUT]: (state: IAppState, payload: any): IAppState => ({
     ...state,
     User: null
   })

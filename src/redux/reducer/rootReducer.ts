@@ -5,7 +5,7 @@ import {
   LocationChangeAction
 } from "connected-react-router";
 import { History } from "history";
-import sessionReducer from "./sessionReducer";
+import sessionReducer from "../session/sessionReducer";
 
 export const rootReducer = (history: History) =>
   combineReducers({
