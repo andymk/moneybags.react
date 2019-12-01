@@ -2,6 +2,7 @@ import React from "react";
 import SideBar from "../components/sidebar";
 import NavBar from "../components/navbar";
 import PageHeader from "../components/pageheader";
+import Footer from "../components/footer";
 
 const HomePage = () => {
   return (
@@ -43,17 +44,7 @@ const HomePage = () => {
           </section>
         </div>
 
-        <footer className="main-footer">
-          <div className="float-right d-none d-sm-block">
-            <b>Version</b> 3.0.1
-          </div>
-          <strong>
-            Copyright &copy; 2014-2019{" "}
-            <a href="http://adminlte.io">AdminLTE.io</a>.
-          </strong>{" "}
-          All rights reserved.
-        </footer>
-
+        <Footer />
         <aside className="control-sidebar control-sidebar-dark"></aside>
       </div>
     </React.Fragment>

@@ -24,7 +24,11 @@ const LoginPage = () => {
         dispatch(push("/"));
       })
       .catch(err => {
-        setError(err.response.data);
+        if (err.response === undefined) {
+          setError(err.message);
+        } else {
+          setError(err.response.data);
+        }
         setInProgress(false);
       });
   };

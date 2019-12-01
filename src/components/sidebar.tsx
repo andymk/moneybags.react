@@ -9,7 +9,7 @@ import { push } from "react-router-redux";
 
 const SideBar = () => {
   const dispatch = useDispatch();
-  const accounts = useFetchAccounts();
+  const [accounts, loading] = useFetchAccounts();
 
   const logOut = () => {
     dispatch(actions.fnLogOut());
@@ -39,7 +39,7 @@ const SideBar = () => {
   );
 
   const SignOut = (props: any) => (
-    <li className="nav-item has-treeview">
+    <li className="nav-item">
       <a className="nav-link" onClick={logOut}>
         <i className="nav-icon fas fa-sign-out-alt"></i>
         <p>Sign Out</p>
@@ -47,17 +47,27 @@ const SideBar = () => {
     </li>
   );
 
-  const renderAccounts = (acc: IAccount[]) =>
-    acc.map((item: IAccount) => (
+  const renderAccounts = (acc: any) => {
+    if (loading) {
+      return (
+        <li className="nav-item">
+          <div className="nav-link">
+            <span>Loading...</span>
+          </div>
+        </li>
+      );
+    }
+    return acc.map((item: IAccount) => (
       <li className="nav-item" key={item.id}>
         <Link to={"/transactions/" + item.id} className="nav-link">
-          <i className="fas fa-fw fa-table"></i>
+          <i className="nav-icon fas fa-table"></i>
           <span>
             {item.name} £{item.balance.toFixed(2)}
           </span>
         </Link>
       </li>
     ));
+  };
 
   return (
     <aside className="main-sidebar sidebar-dark-primary elevation-4">
@@ -78,6 +88,8 @@ const SideBar = () => {
             role="menu"
             data-accordion="false">
             <MenuItem linkTo="/" text="Dashboard" icon="fa-tachometer-alt" />
+            <MenuHeader title="ACCOUNTS" />
+            {accounts && renderAccounts(accounts)}
             <MenuHeader title="OPTIONS" />
             <SignOut linkTo="/login" text="Login" icon="" />
           </ul>
